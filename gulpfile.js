@@ -7,7 +7,11 @@ gulp.task('minify-css', function() {
             console.log(details.name + ': ' + details.stats.originalSize);
             console.log(details.name + ': ' + details.stats.minifiedSize);
         }))
-        .pipe(gulp.dest('build/**/'));
+        .pipe(gulp.dest('build'));
 });
 
-gulp.task('default', ['minify-css']);
+gulp.task('watch', function() {
+    gulp.watch('app/**/*.*', ['minify-css']);
+});
+
+gulp.task('default', ['minify-css', 'watch']);
