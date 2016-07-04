@@ -1,0 +1,21 @@
+main{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-content: flex-start;
+    align-items: flex-start;
+}
+
+.left {
+    order: 0;
+    flex: 1 1 auto;
+    align-self: stretch;
+    background-color: aquamarine;
+}
+
+.right  {
+    order: 1;
+    flex: 1 1 auto;
+    align-self: stretch;
+    background-color: sandybrown;
+}
