@@ -1,16 +1,19 @@
 /**
  * Created by denis on 7/2/16.
  */
-document.body.onmousemove = (event)=> {
+const nav = document.querySelector('nav');
+
+nav.onmouseover = (event)=> {
     let target = event.target;
-    console.log(target);
-    target.classList = [];
-    target.classList.add('black');
+    if(target.nodeName=='LI'){
+    target.classList.remove('transparent');
+    target.classList.add('black');}
 };
-document.body.onmouseout = (event)=> {
+
+nav.onmouseout = (event)=> {
     let target = event.target;
-    console.log(target);
-    target.classList = [];
-    target.classList.add('transparent');
+    if(target.nodeName=='LI'){
+    target.classList.remove('black');
+    target.classList.add('transparent');}
 };
 

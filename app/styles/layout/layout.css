@@ -1,0 +1,22 @@
+html,body{
+    margin:0;
+    padding:0;
+}
+
+main{
+    display: flex;
+    flex-direction: row;
+}
+
+.left {
+
+    flex:1;
+    height: 100vh;
+
+}
+
+.right  {
+    flex:1 auto;
+    background: azure;
+    padding: 10%;
+}

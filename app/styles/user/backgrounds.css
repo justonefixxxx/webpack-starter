@@ -1,8 +1,9 @@
 .black {
     transition: background-color 1s ease;
-    background-color: hsla(0, 0%, 0%, 0.8);
+    background-color: hsla(0, 0%, 0%, 0.6);
 }
 .transparent {
     transition: background-color 1s ease;
     background-color: hsla(0, 0%, 0%, 0);
 }
+

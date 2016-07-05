@@ -5,10 +5,13 @@ const concat = require('gulp-concat');
 const uglify = require('gulp-uglify');
 const babel = require('gulp-babel');
 const sourcemaps = require('gulp-sourcemaps');
-var autoprefixer = require('gulp-autoprefixer');
+const autoprefixer = require('gulp-autoprefixer');
+const imagemin = require('gulp-imagemin');
+
+let concatOrder  = ['app/**/vendor/*.css', 'app/**/layout/*.css', 'app/**/user/*.css' ]
 
 gulp.task('css', ()=> {
-    return gulp.src('app/**/*.css')
+    return gulp.src(concatOrder)
         .pipe(sourcemaps.init())
         .pipe(concat('bundle.css'))
         .pipe(autoprefixer({
@@ -36,7 +39,13 @@ gulp.task('js', ()=> {
         .pipe(gulp.dest('build/js'));
 });
 
-gulp.task('serve', ['css', 'js'], ()=> {
+gulp.task('imagemin', () => {
+    return gulp.src('app/img/*.*')
+        .pipe(imagemin())
+        .pipe(gulp.dest('build/img'))
+});
+
+gulp.task('serve', ['css', 'js', 'imagemin'], ()=> {
 
     browserSync.init({
         server: {
@@ -44,7 +53,7 @@ gulp.task('serve', ['css', 'js'], ()=> {
         }
     });
 
-    gulp.watch(['app/**/*.*', 'index.html'], ['css', 'js', browserSync.reload]);
+    gulp.watch(['app/**/*.*', 'index.html'], ['css', 'js', 'imagemin', browserSync.reload]);
 });
 
 
